@@ -1,7 +1,7 @@
 %define	module	XML-XUpdate-LibXML
 %define	name	perl-%{module}
 %define	version	0.6.0
-%define	release	%mkrel 2
+%define	release	%mkrel 3
 
 Summary:	%{module} module for perl
 Name:		%{name}
@@ -31,6 +31,8 @@ Simple implementation of XUpdate format
 %build
 CFLAGS="$RPM_OPT_FLAGS" perl Makefile.PL INSTALLDIRS=vendor
 %make
+
+%check
 make test
 
 %install
@@ -56,4 +58,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/xupdate
 %{_mandir}/*/*
 %{perl_vendorlib}/XML/*
-
