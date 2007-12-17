@@ -16,7 +16,6 @@ BuildRequires:	libxml2-devel >= 2.4.20
 BuildRequires:	perl-devel
 BuildRequires:	perl(XML::LibXML)
 BuildRequires:	perl(XML::LibXML::XPathContext)
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires(pre):	libxml2
 Requires(pre):  perl(XML::LibXML)
 Requires(pre):	perl(XML::SAX)
