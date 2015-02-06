@@ -1,7 +1,7 @@
 %define	module	XML-XUpdate-LibXML
 %define	name	perl-%{module}
 %define	version	0.6.0
-%define release	8
+%define release	9
 
 Summary:	%{module} module for perl
 Name:		%{name}
