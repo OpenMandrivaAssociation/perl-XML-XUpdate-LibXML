@@ -10,7 +10,7 @@ Release:	%{release}
 License:	MPL
 Group:		Development/Perl
 Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/XML/%{module}-%{version}.tar.bz2
-Url:		http://search.cpan.org/dist/%{module}
+Url:		https://search.cpan.org/dist/%{module}
 BuildArch:	noarch
 BuildRequires:	libxml2-devel >= 2.4.20
 BuildRequires:	perl-devel
