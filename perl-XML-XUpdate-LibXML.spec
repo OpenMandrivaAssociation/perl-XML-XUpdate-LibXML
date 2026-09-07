@@ -1,7 +1,7 @@
 %define	module	XML-XUpdate-LibXML
 %define	name	perl-%{module}
 %define	version	0.6.0
-%define release	9
+%define release	10
 
 Summary:	%{module} module for perl
 Name:		%{name}
@@ -42,6 +42,8 @@ eval `perl '-V:installarchlib'`
 mkdir -p $RPM_BUILD_ROOT/$installarchlib
 %{makeinstall_std}
 
+find %{buildroot} -type f -name '*.pm' -exec chmod -x {} +
+if [ -d %{buildroot}%{_bindir} ]; then find %{buildroot}%{_bindir} -type f -exec chmod 755 {} +; fi
 %preun -p /usr/bin/perl
 use XML::SAX;
 XML::SAX->remove_parser(q(XML::LibXML::SAX::Parser))->save_parsers();
@@ -49,9 +51,6 @@ XML::SAX->remove_parser(q(XML::LibXML::SAX::Parser))->save_parsers();
 %post -p /usr/bin/perl
 use XML::SAX;
 XML::SAX->add_parser(q(XML::LibXML::SAX::Parser))->save_parsers();
-
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
@@ -86,13 +85,13 @@ rm -rf $RPM_BUILD_ROOT
 - rebuild
 
 
-* Fri Apr 28 2006 Nicolas L�cureuil <neoclust@mandriva.org> 0.6.0-2mdk
+* Fri Apr 28 2006 Nicolas Lécureuil <neoclust@mandriva.org> 0.6.0-2mdk
 - Fix SPEC according to Perl Policy
 	- BuildRequires
 	- Requires
 	- Source URL
 
-* Fri May 27 2005 Nicolas L�cureuil <neoclust@mandriva.org> 0.6.0-1mdk
+* Fri May 27 2005 Nicolas Lécureuil <neoclust@mandriva.org> 0.6.0-1mdk
 - 0.6.0
 - Make rpmbuildable
 - Fix pre-requires
@@ -100,7 +99,7 @@ rm -rf $RPM_BUILD_ROOT
 * Mon Aug 30 2004 Rafael Garcia-Suarez <rgarciasuarez@mandrakesoft.com> 0.5.0-2mdk
 - Fix pre-requires
 
-* Thu Jun 03 2004 Per Øyvind Karlsen <peroyvind@linux-mandrake.com> 0.5.0-1mdk
+* Thu Jun 03 2004 Per Ãyvind Karlsen <peroyvind@linux-mandrake.com> 0.5.0-1mdk
 - 0.5.0
 - cosmetics
 
